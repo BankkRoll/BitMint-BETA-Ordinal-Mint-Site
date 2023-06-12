@@ -1,5 +1,7 @@
 # IN PROGRESS COMING SOON!!!
+## Star For Early Access!
 
+---
 ## Full stack easy Low-Code mint DApp for ordinal collections fully onchain. Easily deploy a collection, setup easy user minting directly here in the frontend for your collection!
 ### Full xverse/unisat wallet connect intergration, tracking order status and much more!
 
