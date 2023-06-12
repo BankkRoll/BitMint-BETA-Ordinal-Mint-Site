@@ -1,5 +1,5 @@
 # IN PROGRESS COMING SOON!!!
-## Star For Early Access!
+## Star For Early Access
 
 ---
 ## Full stack easy Low-Code mint DApp for ordinal collections fully onchain. Easily deploy a collection, setup easy user minting directly here in the frontend for your collection!
@@ -15,26 +15,19 @@ Welcome to the BitMint configuration guide! This guide will help you get started
 
 To start setting up the BitMint DApp, you need to fill out the `config.ts` file in the `const` folder. This file contains the primary configuration of your minting DApp, including information about your social links, mint options, and collection options.
 
-### Step 1.1: Configuring Social Links
 
 Replace the placeholder URLs in the `socialLinks` object with your own. If you do not wish to include a certain platform, you may leave the string empty (`''`) which will make it not show the icon on the frontend.
 
 ```typescript
 const socialLinks: SocialLinks = {
-  twitter: '<Your Twitter Link>',
-  instagram: '<Your Instagram Link>',
-  discord: '<Your Discord Link>',
-  telegram: '<Your Telegram Link>',
-  website: '<Your Website Link>',
-  email: '<Your Email>',
+  twitter: '<Your Twitter Link>',                  // replace with social link
+  instagram: '<Your Instagram Link>',              // replace with social link
+  discord: '<Your Discord Link>',                  // replace with social link
+  telegram: '<Your Telegram Link>',                // replace with social link
+  website: '<Your Website Link>',                  // replace with social link
+  email: 'mailto:<Your Email>',                    // replace with your email - ex. 'mailto:example@gmail.com'
 };
-```
 
-### Step 1.2: Configuring Mint Options
-
-Replace the placeholder values in the `mintOptions` object with your own. These settings will determine the conditions of your NFT minting process.
-
-```typescript
 const mintOptions: MintOptions = {
   publicMintStart: new Date('<UTC Date>'),         // Format: 'YYYY-MM-DDTHH:MM:SS'
   publicMintPrice: <Price in Satoshis>,            // replace with the price per mint
@@ -43,24 +36,12 @@ const mintOptions: MintOptions = {
   totalSupply: <Total Supply>,                     // replace with the total supply of NFTs
   artFilesFolder: '<Path to Art Collection>',      // replace with the path to the art collection
 };
-```
 
-### Step 1.3: Configuring Collection Options
-
-Replace the placeholder values in the `collectionOptions` object with your own. These options will define the identity of your NFT collection.
-
-```typescript
 const collectionOptions: CollectionOptions = {
   id: '<Collection ID>',                            // replace with your collection ID
   creator: '<Creator>',                             // replace with your creator name
 };
-```
 
-### Step 1.4: Other Configurations
-
-There are a few more configurations that you will need to set. These include the title, description, font style, and images used in your DApp.
-
-```typescript
 const constants: Constants = {
   fontStyle: '<Font Style>',                         // replace with the desired font style - Font1, Font2, Font3, etc. up to Font7
   title: "<Title>",                                  // replace with your title
