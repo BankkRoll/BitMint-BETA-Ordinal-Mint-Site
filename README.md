@@ -3,14 +3,18 @@
 
 ---
 ## Full stack easy Low-Code mint DApp for ordinal collections fully onchain. Easily deploy a collection, setup easy user minting directly here in the frontend for your collection!
-### Full xverse/unisat wallet connect intergration, tracking order status and much more!
+### Full integrated Xverse, Unisat, Hiro wallet connect intergration, tracking order status and much more!
 
 ![screencapture-localhost-3000-2023-06-12-20_01_03](https://github.com/BankkRoll/BitMint2/assets/106103625/7da9ea3d-0ac8-4c3b-8235-b1fa4f57cdc8)
 
 
 # BitMint - Minting DApp Configuration Guide
 
+### Full stack easy Low-Code mint DApp for ordinal collections fully onchain. Easily deploy a collection, setup easy user minting directly here in the frontend for your collection!
+#### Full xverse/unisat wallet connect intergration, tracking order status and much more!
+
 Welcome to the BitMint configuration guide! This guide will help you get started with setting up your own BTC ordinal minting DApp.
+
 
 ## Step 1: Setting Up the Configuration File
 
@@ -35,8 +39,8 @@ const mintOptions: MintOptions = {
   recipientBTCAddress: '<BTC Address>',            // replace with the recipient BTC address
   totalSupply: <Total Supply>,                     // replace with the total supply of NFTs
   artFilesFolder: '<IPFS Folder Link>',            // replace with the link to your art collection in an IPFS folder
-  artFilesMimeType: "<MIME Type>",                 // replace with the MIME type of your files. e.g. 'image/png'
-  artFilesExtension: "<File Extension>",           // replace with the file extension of your files. e.g. 'png'
+  artFilesMimeType: "<MIME Type>",                 // replace with the MIME type of your files. - refer below to the MIME types and file extensions
+  artFilesExtension: "<File Extension>",           // replace with the file extension of your files. - refer below to the MIME types and file extensions
   fee: <Fee>,                                      // DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU ARE DOING
   serviceFee: <Service Fee>,                       // DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU ARE DOING
 };
@@ -59,6 +63,30 @@ const constants: Constants = {
 export default constants;
 ```
 
+### MIME types and file extensions
+List of possible MIME types and file extensions:
+```typescript
+// 'image/apng' and 'apng'
+// 'audio/flac' and 'flac'
+// 'image/gif' and 'gif'
+// 'text/html' and 'html'
+// 'image/jpeg' and 'jpg' or 'jpeg'
+// 'audio/mpeg' and 'mp3'
+// 'application/pdf' and 'pdf'
+// 'image/png' and 'png'
+// 'image/svg+xml' and 'svg'
+// 'text/plain' and 'txt' or 'asc'
+// 'audio/wave' and 'wav'
+// 'video/webm' and 'webm'
+// 'image/webp' and 'webp'
+// 'video/mp4' and 'mp4'
+// 'model/stl' and 'stl'
+// 'model/gltf-binary' and 'glb'
+// 'image/avif' and 'avif'
+// 'text/yaml' and 'yaml' or 'yml'
+// 'application/json' and 'json'
+
+```
 
 ## Step 2: Creating a New Collection
 
