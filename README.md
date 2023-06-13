@@ -14,28 +14,31 @@ Welcome to the BitMint configuration guide! This guide will help you get started
 
 ## Step 1: Setting Up the Configuration File
 
-To start setting up the BitMint DApp, you need to fill out the `config.ts` file in the `const` folder. This file contains the primary configuration of your minting DApp, including information about your social links, mint options, and collection options.
+To start setting up the BitMint DApp, you need to fill out the `config.ts` file in the `const` folder. This file contains the primary configuration of your minting DApp, including information about your social links, mint options, collection options, and other constants.
 
-
-Replace the placeholder URLs in the `socialLinks` object with your own. If you do not wish to include a certain platform, you may leave the string empty (`''`) which will make it not show the icon on the frontend.
+Replace the placeholder values in the corresponding sections. If you do not wish to include a certain platform in the `socialLinks` object, you may leave the string empty (`''`) which will make it not show the icon on the frontend.
 
 ```typescript
 const socialLinks: SocialLinks = {
-  twitter: '<Your Twitter Link>',                  // replace with social link
-  instagram: '<Your Instagram Link>',              // replace with social link
-  discord: '<Your Discord Link>',                  // replace with social link
-  telegram: '<Your Telegram Link>',                // replace with social link
-  website: '<Your Website Link>',                  // replace with social link
+  twitter: '<Your Twitter Link>',                  // replace with your Twitter link
+  instagram: '<Your Instagram Link>',              // replace with your Instagram link
+  discord: '<Your Discord Link>',                  // replace with your Discord link
+  telegram: '<Your Telegram Link>',                // replace with your Telegram link
+  website: '<Your Website Link>',                  // replace with your website link
   email: 'mailto:<Your Email>',                    // replace with your email - ex. 'mailto:example@gmail.com'
 };
 
 const mintOptions: MintOptions = {
-  publicMintStart: new Date('<UTC Date>'),         // Format: 'YYYY-MM-DDTHH:MM:SS'
-  publicMintPrice: <Price in Satoshis>,            // replace with the price per mint
+  publicMintStart: new Date('<UTC Date>'),         // replace with the public mint start UTC date in 'YYYY-MM-DDTHH:MM:SS' format
+  publicMintPrice: <Price in Satoshis>,            // replace with the public mint price in Satoshis
   limitPerWallet: <Limit per Wallet>,              // replace with the limit per wallet
   recipientBTCAddress: '<BTC Address>',            // replace with the recipient BTC address
   totalSupply: <Total Supply>,                     // replace with the total supply of NFTs
-  artFilesFolder: '<Path to Art Collection>',      // replace with the path to the art collection
+  artFilesFolder: '<IPFS Folder Link>',            // replace with the link to your art collection in an IPFS folder
+  artFilesMimeType: "<MIME Type>",                 // replace with the MIME type of your files. e.g. 'image/png'
+  artFilesExtension: "<File Extension>",           // replace with the file extension of your files. e.g. 'png'
+  fee: <Fee>,                                      // DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU ARE DOING
+  serviceFee: <Service Fee>,                       // DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU ARE DOING
 };
 
 const collectionOptions: CollectionOptions = {
@@ -44,16 +47,18 @@ const collectionOptions: CollectionOptions = {
 };
 
 const constants: Constants = {
-  fontStyle: '<Font Style>',                         // replace with the desired font style - Font1, Font2, Font3, etc. up to Font7
-  title: "<Title>",                                  // replace with your title
-  description: "<Description>",                      // replace with your description
-  collectionImage: "<Path to Collection Image>",     // replace with the path to the collection image
-  navbarImage: "<Path to Navbar Image>",             // replace with the path to the navbar image
-  socialLinks: socialLinks,                          // DO NOT CHANGE THIS
-  mintOptions: mintOptions,                          // DO NOT CHANGE THIS
-  collectionOptions: collectionOptions,              // DO NOT CHANGE THIS
+  fontStyle: '<Font Style>',                        // replace with the desired font style - Font1, Font2, Font3, etc. up to Font7
+  title: "<Title>",                                 // replace with your title
+  description: "<Description>",                     // replace with your description
+  collectionImage: "<Path to Collection Image>",    // replace with the path to the collection image
+  navbarImage: "<Path to Navbar Image>",            // replace with the path to the navbar image
+  socialLinks: socialLinks,                         // DO NOT CHANGE THIS
+  mintOptions: mintOptions,                         // DO NOT CHANGE THIS
+  collectionOptions: collectionOptions,             // DO NOT CHANGE THIS
 };
+export default constants;
 ```
+
 
 ## Step 2: Creating a New Collection
 
