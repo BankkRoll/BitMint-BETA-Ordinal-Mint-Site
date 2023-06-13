@@ -5,7 +5,8 @@
 ## Full stack easy Low-Code mint DApp for ordinal collections fully onchain. Easily deploy a collection, setup easy user minting directly here in the frontend for your collection!
 ### Full xverse/unisat wallet connect intergration, tracking order status and much more!
 
-![screencapture-localhost-3000-2023-06-12-13_02_47](https://github.com/BankkRoll/BitMint2/assets/106103625/6c3a0199-b801-42a7-8bd4-5ccb5bb189e0)
+![screencapture-localhost-3000-2023-06-12-20_01_03](https://github.com/BankkRoll/BitMint2/assets/106103625/7da9ea3d-0ac8-4c3b-8235-b1fa4f57cdc8)
+
 
 # BitMint - Minting DApp Configuration Guide
 
