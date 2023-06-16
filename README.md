@@ -1,10 +1,14 @@
 # IN PROGRESS COMING SOON!!!
 ## Star For Early Access
+---
+
+In progress
+
+- [ ] - Add whitelist phase and functionality
+- [ ] - Integrate automatic application process
+- [ ] - MORE COMING SOON!!!
 
 ---
-## Full stack easy Low-Code mint DApp for ordinal collections fully onchain. Easily deploy a collection, setup easy user minting directly here in the frontend for your collection!
-### Full integrated Xverse, Unisat, Hiro wallet connect intergration, tracking order status and much more!
-
 ![screencapture-localhost-3000-2023-06-12-20_01_03](https://github.com/BankkRoll/BitMint2/assets/106103625/7da9ea3d-0ac8-4c3b-8235-b1fa4f57cdc8)
 
 
@@ -38,7 +42,8 @@ const mintOptions: MintOptions = {
   limitPerWallet: <Limit per Wallet>,              // replace with the limit per wallet
   recipientBTCAddress: '<BTC Address>',            // replace with the recipient BTC address
   totalSupply: <Total Supply>,                     // replace with the total supply of NFTs
-  artFilesFolder: '<IPFS Folder Link>',            // replace with the link to your art collection in an IPFS folder
+  artFilesFolder: '<IPFS Folder Link>',            // replace with the link to your art collection in a local folder ex. './assets'
+  optimizeImages: true,                            // Optimize images - true/false
   artFilesMimeType: "<MIME Type>",                 // replace with the MIME type of your files. - refer below to the MIME types and file extensions
   artFilesExtension: "<File Extension>",           // replace with the file extension of your files. - refer below to the MIME types and file extensions
   fee: <Fee>,                                      // DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU ARE DOING
@@ -51,7 +56,7 @@ const collectionOptions: CollectionOptions = {
 };
 
 const constants: Constants = {
-  fontStyle: '<Font Style>',                        // replace with the desired font style - Font1, Font2, Font3, etc. up to Font7
+  fontStyle: '<Font Style>',                        // replace with the desired font style - Font1, Font2, Font3, etc. up to Font13
   title: "<Title>",                                 // replace with your title
   description: "<Description>",                     // replace with your description
   collectionImage: "<Path to Collection Image>",    // replace with the path to the collection image
@@ -88,6 +93,7 @@ List of possible MIME types and file extensions:
 
 ```
 
+
 ## Step 2: Creating a New Collection
 
 After setting up your configuration file, the next step is to create your collection. For this purpose, we have a script named `createCollection.ts` which reads your art files, prepares the necessary collection data, and sends it to a predefined API endpoint.
@@ -104,7 +110,21 @@ This command will execute the script which automatically creates your collection
 
 Upon successful execution, a JSON file named `collection.json` will be created in the root directory of your project. This file will contain the response data from the collection creation API which includes important details of your collection such as the collection ID.
 
-Remember to keep the `collection.json` file safe as it contains important information about your collection.
+
+
+## Step 3: Deploying the site to allowing minting
+
+After creating the collection you will need to deploy the site to allow minting. You can do so by setting up a github repo and deploy the site to vercel for free. You will also need to hop in the [ordninalsbot](https://ordinalsbot.com/) discord and apply for your collection approval. Once approved, you can start minting!
+
+
+
+
+
+
+
+
+
+
 
 
 
