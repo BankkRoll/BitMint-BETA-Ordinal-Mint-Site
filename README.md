@@ -5,8 +5,19 @@
 In progress
 
 - [ ] - Add whitelist phase and functionality
-- [ ] - Integrate automatic application process
+- [ ] - Intergrate automatic application process
+- [ ] - Intergrate recursive ordinals support
 - [ ] - MORE COMING SOON!!!
+
+
+Completed
+
+- [x] - 1 command collection creation - `npm run create`
+- [x] - 1 file easy setup configuration - `config.ts`
+- [x] - 20+ Built in Fonts
+- [x] - Easy minting UI
+- [x] - Multi Wallet Connect support - `Xverse, Unisat, Hiro, More coming soon!`
+- [x] - Pending order status tracking - `Live order tracking`
 
 ---
 ![screencapture-localhost-3000-2023-06-12-20_01_03](https://github.com/BankkRoll/BitMint2/assets/106103625/7da9ea3d-0ac8-4c3b-8235-b1fa4f57cdc8)
