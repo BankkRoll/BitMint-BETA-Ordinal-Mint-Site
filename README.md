@@ -26,7 +26,7 @@
 <summary><strong>In progress</strong></summary>
 
 - [ ] - Fix FEE and order confirmation
-- [ ] - Finish implemting custom gas for economy, normal, custom
+- [ ] - Finish implementing custom gas for economy, normal, custom
 - [ ] - Add whitelist phase and functionality
 - [ ] - Integrate automatic application process
 - [ ] - Integrate recursive ordinals support
