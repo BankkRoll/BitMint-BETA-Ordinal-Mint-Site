@@ -6,7 +6,7 @@ const socialLinks: SocialLinks = {
   instagram: "https://instagram.com/",
   discord: "https://discord.com/",
   telegram: "https://telegram.me/",
-  website: "https://example.com/",
+  website: "https://bitmint-beta.vercel.app",
   email: "mailto:example@email.com",                        // add 'mailto:' to email link for click event ex 'mailto:example.com'
 };
 
