@@ -25,6 +25,8 @@
 <details>
 <summary><strong>In progress</strong></summary>
 
+- [ ] - Fix FEE and order confimation
+- [ ] - Finish implemting or custom gas for economy,normal
 - [ ] - Add whitelist phase and functionality
 - [ ] - Integrate automatic application process
 - [ ] - Integrate recursive ordinals support
