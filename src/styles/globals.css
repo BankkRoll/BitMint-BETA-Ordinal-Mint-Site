@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
+}
+
+body {
+	color: rgb(var(--foreground-rgb));
+	background: linear-gradient(to bottom,transparent,rgb(var(--background-end-rgb)))rgb(var(--background-start-rgb));
+}
+
+
+/* Fonts */
+@font-face {
+	font-family: 'Font1';
+	src: url('./fonts/Font1.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Font2';
+	src: url('./fonts/Font2.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Font3';
+	src: url('./fonts/Font3.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Font4';
+	src: url('./fonts/Font4.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Font5';
+	src: url('./fonts/Font5.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Font6';
+	src: url('./fonts/Font6.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Font7';
+	src: url('./fonts/Font7.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Font8';
+	src: url('./fonts/Font8.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Font9';
+	src: url('./fonts/Font9.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Font10';
+	src: url('./fonts/Font10.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Font11';
+	src: url('./fonts/Font11.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Font12';
+	src: url('./fonts/Font12.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Font13';
+	src: url('./fonts/Font13.ttf') format('truetype');
+}
+
+/* styles for main buttons */
+.boxy-button {
+	--b: 2px;
+	--color: #fff;
+	padding: 12px 24px;
+	position: relative;
+	border: solid white;
+	color: white;
+	background: transparent;
+	overflow: hidden;
+	transition: color 0.3s;
+}
+@media screen and (max-width: 600px) {
+	.boxy-button {
+		padding: 4px 8px;
+		font-size: 0.8rem;
+	}
+}
+.boxy-button:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	background-color: white !important;
+	transition: width 0.3s cubic-bezier(0.48, 0, 0.12, 1);
+	z-index: -1;
+}
+.boxy-button:hover:before {
+	width: 100%;
+}
+.boxy-button:hover {
+	color: #000000;
+}
+
+/* styles for mint button */
+.boxy-button-mint .button-text {
+	position: relative;
+	z-index: 1;
+}
+.boxy-button-mint {
+	--b: 2px;
+	--color: #fff;
+	padding: 12px 24px;
+	position: relative;
+	border: solid white;
+	color: white;
+	background: transparent;
+	overflow: hidden;
+	transition: color 0.3s;
+}
+/* Modify button size for smaller screens */
+@media screen and (max-width: 600px) {
+	.boxy-button-mint {
+		padding: 4px 8px;
+		font-size: 0.8rem;
+	}
+}
+.boxy-button-mint:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	background-color: white !important;
+	transition: width 0.3s cubic-bezier(0.48, 0, 0.12, 1);
+	z-index: 0;
+}
+.boxy-button-mint:hover:before {
+	width: 100%;
+}
+.boxy-button-mint:hover {
+	color: #000000;
+}
+
+/* styles for mint container buttons */
+.boxy-button2 {
+  --b: 2px;
+  --color: #fff;
+  padding: 4px 6px;
+  position: relative;
+  border: solid white;
+  color: white;
+  background: transparent;
+  overflow: hidden;
+  transition: color 0.3s;
+}
+.boxy-button2:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: black !important;
+  background-color: white !important;
+  transition: width 0.3s cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 0;
+}
+.boxy-button2:hover:before {
+  width: 100%;
+}
+.boxy-button2:hover {
+  color: #000000;
+}
+.boxy-button2 .button-text {
+  position: relative;
+  z-index: 1;
+}
+.boxy-button3 {
+  --b: 2px;
+  --color: #fff;
+  padding: 4px 6px;
+  position: relative;
+  border: solid white;
+  color: white;
+  background: transparent;
+  overflow: hidden;
+  transition: color 0.3s;
+}
+.boxy-button3:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%; /* Starts from the left */
+  width: 100%;
+  height: 100%;
+  color: black !important;
+  background-color: white !important;
+  transition: all 0.3s cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 0;
+}
+.boxy-button3:hover:before {
+  left: 0; /* Comes in from the left */
+}
+.boxy-button3:hover {
+  color: #000000;
+}
+.boxy-button3 .button-text {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Styles for Input amount */
+/* Chrome, Safari, and Opera */
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+/* For Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+
+
+/* styles for main buttons */
+.boxy-button4 {
+	--b: 2px;
+	--color: #fff;
+	padding: 12px 24px;
+	position: relative;
+	border: solid white;
+	color: white;
+	background: transparent;
+	overflow: hidden;
+	transition: color 0.3s;
+}
+@media screen and (max-width: 600px) {
+	.boxy-button4 {
+		padding: 4px 8px;
+		font-size: 0.8rem;
+	}
+}
