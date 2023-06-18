@@ -25,8 +25,8 @@
 <details>
 <summary><strong>In progress</strong></summary>
 
-- [ ] - Fix FEE and order confimation
-- [ ] - Finish implemting or custom gas for economy,normal
+- [ ] - Fix FEE and order confirmation
+- [ ] - Finish implemting custom gas for economy, normal, custom
 - [ ] - Add whitelist phase and functionality
 - [ ] - Integrate automatic application process
 - [ ] - Integrate recursive ordinals support
@@ -190,12 +190,12 @@ Contributions are what make the open-source community vibrant, inspiring, and a 
 
 Here are some resources to help you get started:
 
-- **Next.js**: [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- **Vercel**: [Vercel Documentation](https://vercel.com/docs) - learn about Vercel features and API.
-- **Ordinals Bot**: [Ordinals Bot API Documentation](https://docs.ordinalsbot.com/) - learn about the API used in this project.
-- **Ordinals Bot**:  [ordinalsbot.com](https://ordinalsbot.com/) - learn about the OrdinalBot platform.
-- **Ordinals Bot Discord**: [Join the OrdinalsBot Discord](https://discord.gg/9nBhVgCjct) - a place to get help and discuss about Ordinals Bot.
-- **GitHub**: [GitHub Documentation](https://docs.github.com) - learn how to use GitHub to manage and collaborate on your projects.
+- **Next.js**: [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API.
+- **Vercel**: [Vercel Documentation](https://vercel.com/docs) - Learn about Vercel features and API.
+- **GitHub**: [GitHub Documentation](https://docs.github.com) - Learn how to use GitHub to manage and collaborate on your projects.
+- **Ordinals Bot**:  [ordinalsbot.com](https://ordinalsbot.com/) - Learn about the OrdinalBot platform.
+- **Ordinals Bot API**: [Ordinals Bot API Documentation](https://docs.ordinalsbot.com/) - Learn about the API used in this project.
+- **Ordinals Bot Discord**: [Join the OrdinalsBot Discord](https://discord.gg/9nBhVgCjct) - A place to get help and discuss about Ordinals Bot.
 
 These resources will help you understand the technologies used in this project and allow you to better use, modify, and contribute to the project.
 
