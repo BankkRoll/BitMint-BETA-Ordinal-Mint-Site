@@ -1,17 +1,38 @@
-# IN PROGRESS!! PLEASE UNDERSTAND THIS CODE IS NOT READY FOR PRODUCTION. VERY CLOSE..
+# BitMint BETA - Minting DApp Configuration Guide
+## 🚨IN PROGRESS NOT READY FOR PRODUCTION!🚨
+### Simple Low-Code mint DApp for ordinal collections fully onchain.
+### Easily deploy a collection, setup easy user minting directly here in the frontend for your collection! Full integrated Xverse, Unisat, Hiro wallet connect integration, tracking order status and much more!
+
+<p align="center">
+  <img src="https://github.com/BankkRoll/BitMint2/assets/106103625/7da9ea3d-0ac8-4c3b-8235-b1fa4f57cdc8" width="50%" alt="Project screenshot"/>
+</p>
+
+# Table of Contents
+1. [BitMint BETA - Minting DApp Configuration Guide](#bitmint-beta---minting-dapp-configuration-guide)
+2. [In Progress & Completed Features ⚙️](#in-progress--completed-features-️)
+3. [Configuration Guide 🔧](#configuration-guide-)
+4. [Step 1: Setting Up the Configuration File](#step-1-setting-up-the-configuration-file)
+5. [Step 2: Creating a New Collection 🎨](#step-2-creating-a-new-collection-)
+6. [Step 3: Deploying the Site For Minting 💻](#step-3-deploying-the-site-for-minting-)
+7. [Contributing 🤝](#contributing-)
+8. [Learn More 📚](#learn-more-)
+9. [License 📜](#license-)
+10. [Contact 📨](#contact-)
 ---
 
-In progress
+## In Progress & Completed Features ⚙️
+
+<details>
+<summary><strong>In progress</strong></summary>
 
 - [ ] - Add whitelist phase and functionality
-- [ ] - Suport multiple layouts fully responsive
-- [ ] - Intergrate automatic application process
-- [ ] - Intergrate recursive ordinals support
-- [ ] - Small fixes and improvements
+- [ ] - Integrate automatic application process
+- [ ] - Integrate recursive ordinals support
 - [ ] - MORE COMING SOON!!!
+</details>
 
-
-Completed
+<details>
+<summary><strong>Completed</strong></summary>
 
 - [x] - 1 command collection creation - `npm run create`
 - [x] - 1 file easy setup configuration - `config.ts`
@@ -19,24 +40,20 @@ Completed
 - [x] - Easy minting UI
 - [x] - Multi Wallet Connect support - `Xverse, Unisat, Hiro, More coming soon!`
 - [x] - Pending order status tracking - `Live order tracking`
+</details>
 
 ---
-![screencapture-localhost-3000-2023-06-12-20_01_03](https://github.com/BankkRoll/BitMint2/assets/106103625/7da9ea3d-0ac8-4c3b-8235-b1fa4f57cdc8)
 
-
-# BitMint - Minting DApp Configuration Guide
-
-### Full stack easy Low-Code mint DApp for ordinal collections fully onchain. Easily deploy a collection, setup easy user minting directly here in the frontend for your collection!
-#### Full xverse/unisat wallet connect intergration, tracking order status and much more!
-
-Welcome to the BitMint configuration guide! This guide will help you get started with setting up your own BTC ordinal minting DApp.
-
+## Configuration Guide 🔧
 
 ## Step 1: Setting Up the Configuration File
 
 To start setting up the BitMint DApp, you need to fill out the `config.ts` file in the `const` folder. This file contains the primary configuration of your minting DApp, including information about your social links, mint options, collection options, and other constants.
 
 Replace the placeholder values in the corresponding sections. If you do not wish to include a certain platform in the `socialLinks` object, you may leave the string empty (`''`) which will make it not show the icon on the frontend.
+
+<details>
+<summary><strong>config.ts example</strong></summary>
 
 ```typescript
 const socialLinks: SocialLinks = {
@@ -55,7 +72,7 @@ const mintOptions: MintOptions = {
   recipientBTCAddress: '<BTC Address>',            // replace with the recipient BTC address
   totalSupply: <Total Supply>,                     // replace with the total supply of NFTs
   artFilesFolder: '<IPFS Folder Link>',            // replace with the link to your art collection in a local folder ex. './assets'
-  optimizeImages: true,                            // Optimize images upon upload. true/false - QUALITY MAY BE ADJUSTED
+  optimizeImages: true,                            // Optimize images - true/false
   artFilesMimeType: "<MIME Type>",                 // replace with the MIME type of your files. - refer below to the MIME types and file extensions
   artFilesExtension: "<File Extension>",           // replace with the file extension of your files. - refer below to the MIME types and file extensions
   fee: <Fee>,                                      // DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU ARE DOING
@@ -79,9 +96,14 @@ const constants: Constants = {
 };
 export default constants;
 ```
+</details>
+
 
 ### MIME types and file extensions
-List of possible MIME types and file extensions:
+
+<details>
+<summary><strong>List of possible MIME types and file extensions:</strong></summary>
+
 ```typescript
 // 'image/apng' and 'apng'
 // 'audio/flac' and 'flac'
@@ -104,57 +126,86 @@ List of possible MIME types and file extensions:
 // 'application/json' and 'json'
 
 ```
-
-
-## Step 2: Creating a New Collection
-
-After setting up your configuration file, the next step is to create your collection. For this purpose, we have a script named `createCollection.ts` which reads your art files, prepares the necessary collection data, and sends it to a predefined API endpoint.
-
-To run this script, follow these steps:
-
-1. Make sure you have the required art files in the folder specified in the `artFilesFolder` field in your constants file.
-
-2. Run the `createCollection` script using the command:
-
-   `npm run create`
-
-This command will execute the script which automatically creates your collection based on the provided configuration.
-
-Upon successful execution, a JSON file named `collection.json` will be created in the root directory of your project. This file will contain the response data from the collection creation API which includes important details of your collection such as the collection ID.
-
-
-
-## Step 3: Deploying the site to allowing minting
-
-After creating the collection you will need to deploy the site to allow minting. You can do so by setting up a github repo and deploy the site to vercel for free. You will also need to hop in the [ordninalsbot](https://ordinalsbot.com/) discord and apply for your collection approval. Once approved, you can start minting!
-
-
-
-
-
-
-
-
-
-
-
+</details>
 
 
 ---
-## Contributing
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+## Step 2: Creating a New Collection 🎨
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+After you've successfully set up your configuration file, it's time to generate your art collection! This is accomplished with the `createCollection.ts` script. This handy tool takes your art files, generates all the necessary collection data, and then communicates with our API endpoint to initiate the creation process.
 
-## License
+To use this script, please follow the steps below:
 
-Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
+1. **Prepare your Art Files:** Ensure that all required art files are located in the folder specified by the `artFilesFolder` field in your constants file.
 
-## Contact
+2. **Run the `createCollection` script:** This is easily done using the following command:
 
-BankkRoll - [@bankkroll_eth](https://twitter.com/bankkroll_eth)
+   ```shell
+   npm run create
+   ```
+
+   This command initiates the script, which will create your collection based on the information provided in your configuration file.
+
+---
+
+## Step 3: Deploying the Site For Minting 💻
+
+After your collection has been created, it's time to deploy your site and start minting! But first, you'll need to head over to the [OrdinalsBot Discord](https://ordinalsbot.com/) and apply for collection approval. Upon approval, you'll receive an API key that will enable users to POST mint requests to your newly setup collection.
+
+Add your API key to the `.env` file (or to your Environment Variables if you're using Vercel or a similar service) as follows:
+
+```typescript
+ORDINALSBOT_API_KEY=<Your API Key>
+```
+
+Finally, deploy your site! Setting up a GitHub repo and deploying your site with Vercel for a smooth and cost-effective launch.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBankkRoll%2FBitMint-Ordinal-Mint-Site-&env=ORDINALSBOT_API_KEY&envDescription=OrdinalsBot%20API%20Key%20REQUIRED!&envLink=https%3A%2F%2Fordinalsbot.com%2F&demo-title=BitMint&demo-description=Low-Code%20mint%20DApp%20for%20ordinal%20collections%20fully%20onchain.&demo-url=https%3A%2F%2Fbitmint.vercel.app%2F&demo-image=https%3A%2F%2Fgithub.com%2FBankkRoll%2FBitMint2%2Fassets%2F106103625%2F7da9ea3d-0ac8-4c3b-8235-b1fa4f57cdc8)
+
+---
+
+---
+
+---
+
+
+## Contributing 🤝
+[![Fork](https://img.shields.io/badge/Fork-on%20GitHub-blue?logo=github)](https://github.com/BankkRoll/BitMint-Ordinal-Mint-Site/fork)
+
+Contributions are what make the open-source community vibrant, inspiring, and a great place for learning. Any contributions you make to BitMint are **greatly appreciated**.
+
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a pull request.
+
+---
+
+## Learn More 📚
+
+Here are some resources to help you get started:
+
+- **Next.js**: [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- **Vercel**: [Vercel Documentation](https://vercel.com/docs) - learn about Vercel features and API.
+- **Ordinals Bot**: [Ordinals Bot API Documentation](https://docs.ordinalsbot.com/) - learn about the API used in this project.
+- **Ordinals Bot**:  [ordinalsbot.com](https://ordinalsbot.com/) - learn about the OrdinalBot platform.
+- **Ordinals Bot Discord**: [Join the OrdinalsBot Discord](https://discord.gg/9nBhVgCjct) - a place to get help and discuss about Ordinals Bot.
+- **GitHub**: [GitHub Documentation](https://docs.github.com) - learn how to use GitHub to manage and collaborate on your projects.
+
+These resources will help you understand the technologies used in this project and allow you to better use, modify, and contribute to the project.
+
+---
+
+## License 📜
+
+BitMint is distributed under the MIT License. See [LICENSE](/LICENSE) for more information.
+
+---
+
+## Contact 📨
+
+You can reach out through the following:
+
+Twitter - [@bankkroll_eth](https://twitter.com/bankkroll_eth)
