@@ -16,6 +16,7 @@
     "@types/node": "^20.2.6",
     "@types/react": "18.2.11",
     "animate.css": "^4.1.1",
+    "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
