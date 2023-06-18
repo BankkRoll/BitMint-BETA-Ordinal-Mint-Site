@@ -33,8 +33,8 @@ const constants: Constants = {
   fontStyle: 'Font12',                                                                                                // Font1, Font2, ..to.. Font12, Font13
   title: "BitMint",                                                                                                   // Title
   description: "The First ever low-code bitcoin ordinals full-stack minting boilerplate. Developed by Bankkroll.eth", // Description
-  collectionImage: "./images/logo.png",                                                                               // Mintpage main image
-  navbarImage: "./images/logo.png",                                                                                   // Navbar image
+  collectionImage: "images/logo.png",                                                                                 // Mintpage main image
+  navbarImage: "images/logo.png",                                                                                     // Navbar image
   socialLinks: socialLinks,
   mintOptions: mintOptions,
   collectionOptions: collectionOptions,
