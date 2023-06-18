@@ -1,12 +1,13 @@
-# IN PROGRESS COMING SOON!!!
-## Star For Early Access
+# IN PROGRESS!! PLEASE UNDERSTAND THIS CODE IS NOT READY FOR PRODUCTION. VERY CLOSE..
 ---
 
 In progress
 
 - [ ] - Add whitelist phase and functionality
+- [ ] - Suport multiple layouts fully responsive
 - [ ] - Intergrate automatic application process
 - [ ] - Intergrate recursive ordinals support
+- [ ] - Small fixes and improvements
 - [ ] - MORE COMING SOON!!!
 
 
@@ -54,7 +55,7 @@ const mintOptions: MintOptions = {
   recipientBTCAddress: '<BTC Address>',            // replace with the recipient BTC address
   totalSupply: <Total Supply>,                     // replace with the total supply of NFTs
   artFilesFolder: '<IPFS Folder Link>',            // replace with the link to your art collection in a local folder ex. './assets'
-  optimizeImages: true,                            // Optimize images - true/false
+  optimizeImages: true,                            // Optimize images upon upload. true/false - QUALITY MAY BE ADJUSTED
   artFilesMimeType: "<MIME Type>",                 // replace with the MIME type of your files. - refer below to the MIME types and file extensions
   artFilesExtension: "<File Extension>",           // replace with the file extension of your files. - refer below to the MIME types and file extensions
   fee: <Fee>,                                      // DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU ARE DOING
@@ -139,16 +140,20 @@ After creating the collection you will need to deploy the site to allow minting.
 
 
 
-
+---
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-### Coming Soon!
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
 
 ## Contact
 
