@@ -37,7 +37,7 @@ const HomePage = () => {
                 {/* GitHub Link */}
                 <meta name="author" content="https://github.com/BankkRoll/BitMint-BETA-Ordinal-Mint-Site" />
             </Head>
-            <main>
+            <main className="bg-black">
                 <Mint />
             </main>
         </div>
