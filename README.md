@@ -164,7 +164,7 @@ ORDINALSBOT_API_KEY=<Your API Key>
 
 Finally, deploy your site! Setting up a GitHub repo and deploying your site with Vercel for a smooth and cost-effective launch.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBankkRoll%2FBitMint-Ordinal-Mint-Site-&env=ORDINALSBOT_API_KEY&envDescription=OrdinalsBot%20API%20Key%20REQUIRED!&envLink=https%3A%2F%2Fordinalsbot.com%2F&demo-title=BitMint&demo-description=Low-Code%20mint%20DApp%20for%20ordinal%20collections%20fully%20onchain.&demo-url=https%3A%2F%2Fbitmint.vercel.app%2F&demo-image=https%3A%2F%2Fgithub.com%2FBankkRoll%2FBitMint2%2Fassets%2F106103625%2F7da9ea3d-0ac8-4c3b-8235-b1fa4f57cdc8)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBankkRoll%2FBitMint-BETA-Ordinal-Mint-Site&env=ORDINALSBOT_API_KEY&envDescription=OrdinalsBot%20API%20Key%20REQUIRED!&envLink=https%3A%2F%2Fordinalsbot.com%2F&demo-title=BitMint&demo-description=Low-Code%20mint%20DApp%20for%20ordinal%20collections%20fully%20onchain.&demo-url=https%3A%2F%2Fbitmint.vercel.app%2F&demo-image=https%3A%2F%2Fgithub.com%2FBankkRoll%2FBitMint2%2Fassets%2F106103625%2F7da9ea3d-0ac8-4c3b-8235-b1fa4f57cdc8)
 
 ---
 
