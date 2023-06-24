@@ -174,7 +174,7 @@ Finally, deploy your site! Setting up a GitHub repo and deploying your site with
 
 
 ## Contributing 🤝
-[![Fork](https://img.shields.io/badge/Fork-on%20GitHub-blue?logo=github)](https://github.com/BankkRoll/BitMint-Ordinal-Mint-Site/fork)
+[![Fork](https://img.shields.io/badge/Fork-on%20GitHub-blue?logo=github)](https://github.com/BankkRoll/BitMint-BETA-Ordinal-Mint-Site/fork)
 
 Contributions are what make the open-source community vibrant, inspiring, and a great place for learning. Any contributions you make to BitMint are **greatly appreciated**.
 
