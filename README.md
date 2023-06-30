@@ -1,5 +1,9 @@
 # BitMint BETA - Minting DApp Configuration Guide
 ## 🚨IN PROGRESS NOT READY FOR PRODUCTION!🚨
+## 🚨THIS REPO IS NOT READY FOR MINTING AND STILL IN PROGRESS!!🚨
+
+---
+
 ### Simple Low-Code mint DApp for ordinal collections fully onchain.
 ### Easily deploy a collection, setup easy user minting directly here in the frontend for your collection! Full integrated Xverse, Unisat, Hiro wallet connect integration, tracking order status and much more!
 
@@ -136,7 +140,19 @@ export default constants;
 
 ## Step 2: Creating a New Collection 🎨
 
-After you've successfully set up your configuration file, it's time to generate your art collection! This is accomplished with the `createCollection.ts` script. This handy tool takes your art files, generates all the necessary collection data, and then communicates with our API endpoint to initiate the creation process.
+After you've successfully set up your configuration file, it's time to generate your art collection! This is accomplished with the `createCollection.ts` script. This tool takes your art files, generates all the necessary collection data, and then communicates with our API endpoint to initiate the creation process.
+
+Before using this script, you must:
+
+1. Visit the [OrdinalsBot Discord](https://ordinalsbot.com/)
+2. Open a ticket to request a `collection-upload` API key. This key will be tied to your collection and will allow the `createCollection.ts` script to communicate with our API endpoint.
+3. Await approval for your API key. Do not proceed to the next step without this approval and the `collection-upload` API key.
+
+Upon approval, you will receive the API key. Add this key to your `.env` file (or to your Environment Variables if you're using Vercel or a similar service) as follows:
+
+```typescript
+ORDINALSBOT_API_KEY=<Your API Key>
+```
 
 To use this script, please follow the steps below:
 
@@ -154,15 +170,10 @@ To use this script, please follow the steps below:
 
 ## Step 3: Deploying the Site For Minting 💻
 
-After your collection has been created, it's time to deploy your site and start minting! But first, you'll need to head over to the [OrdinalsBot Discord](https://ordinalsbot.com/) and apply for collection approval. Upon approval, you'll receive an API key that will enable users to POST mint requests to your newly setup collection.
+After your collection has been created, it's time to deploy your site and start minting! 
 
-Add your API key to the `.env` file (or to your Environment Variables if you're using Vercel or a similar service) as follows:
 
-```typescript
-ORDINALSBOT_API_KEY=<Your API Key>
-```
-
-Finally, deploy your site! Setting up a GitHub repo and deploying your site with Vercel for a smooth and cost-effective launch.
+I suggest setting up a GitHub repo and deploying your site with Vercel for a smooth and cost-effective launch.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBankkRoll%2FBitMint-BETA-Ordinal-Mint-Site&env=ORDINALSBOT_API_KEY&envDescription=OrdinalsBot%20API%20Key%20REQUIRED!&envLink=https%3A%2F%2Fordinalsbot.com%2F&demo-title=BitMint&demo-description=Low-Code%20mint%20DApp%20for%20ordinal%20collections%20fully%20onchain.&demo-url=https%3A%2F%2Fbitmint.vercel.app%2F&demo-image=https%3A%2F%2Fgithub.com%2FBankkRoll%2FBitMint2%2Fassets%2F106103625%2F7da9ea3d-0ac8-4c3b-8235-b1fa4f57cdc8)
 
