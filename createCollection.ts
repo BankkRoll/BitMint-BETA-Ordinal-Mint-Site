@@ -6,6 +6,12 @@ import FormData from 'form-data';
 
 async function createCollection() {
   console.log('Creating collection...');
+
+  // Check if API Key is set
+  if (!process.env.ORDINALSBOT_API_KEY) {
+    throw new Error('ORDINALSBOT_API_KEY environment variable is not set.');
+  }
+
   const extension = constants.mintOptions.artFilesExtension;
   const totalSupply = constants.mintOptions.totalSupply;
   console.log(`Extension: ${extension}, Total supply: ${totalSupply}`);
@@ -14,6 +20,11 @@ async function createCollection() {
     const fileName = `${i + 1}.${extension}`;
     const localFilePath = path.join(__dirname, constants.mintOptions.artFilesFolder, fileName);
 
+    // Check if file exists
+    if (!fs.existsSync(localFilePath)) {
+      throw new Error(`File ${localFilePath} does not exist.`);
+    }
+    
     return {
       name: fileName,
       url: localFilePath
@@ -45,9 +56,11 @@ async function createCollection() {
   const options = {
     headers: {
       ...formData.getHeaders(),
+      'x-api-key': process.env.ORDINALSBOT_API_KEY,
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537'
     },
   };
+
 
   console.log('Making request to create collection...');
   try {
