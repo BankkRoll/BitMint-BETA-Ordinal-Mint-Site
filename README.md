@@ -142,11 +142,15 @@ export default constants;
 
 After you've successfully set up your configuration file, it's time to generate your art collection! This is accomplished with the `createCollection.ts` script. This tool takes your art files, generates all the necessary collection data, and then communicates with our API endpoint to initiate the creation process.
 
-Before using this script, you must:
+**Before using the `createCollection.ts` script, you absolutely must obtain a `collection-upload` API key**. 
 
-1. Visit the [OrdinalsBot Discord](https://ordinalsbot.com/)
-2. Open a ticket to request a `collection-upload` API key. This key will be tied to your collection and will allow the `createCollection.ts` script to communicate with our API endpoint.
-3. Await approval for your API key. Do not proceed to the next step without this approval and the `collection-upload` API key.
+To obtain this key, please follow these crucial steps:
+
+1. **Visit the [OrdinalsBot Discord](https://ordinalsbot.com/).**
+
+2. **Open a ticket to request a `collection-upload` API key:** In the ticket, clearly state that you're using the Bitmint boilerplate for creating your NFT collection and you need a `collection-upload` API key. The clearer you make your request, the smoother the process will be.
+
+3. **Await approval for your API key:** This is a crucial step. Please be patient and do not proceed to the next step without this approval and the `collection-upload` API key.
 
 Upon approval, you will receive the API key. Add this key to your `.env` file (or to your Environment Variables if you're using Vercel or a similar service) as follows:
 
