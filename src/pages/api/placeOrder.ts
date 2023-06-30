@@ -19,11 +19,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         id: constants.collectionOptions.id,
         count: quantity,
         receiveAddress: ordinalsAddress,
-      },
-      {
-        headers: {
-          'x-api-key': process.env.ORDINALSBOT_API_KEY,
-        },
       }
     );
 
