@@ -49,7 +49,6 @@ async function createCollection() {
   formData.append('totalCount', totalSupply.toString());
   formData.append('serviceFee', constants.mintOptions.serviceFee.toString());
   formData.append('receiveAddress', constants.mintOptions.recipientBTCAddress);
-  formData.append('fee', constants.mintOptions.fee.toString());
   formData.append('optimize-images', constants.mintOptions.optimizeImages.toString());
 
 
