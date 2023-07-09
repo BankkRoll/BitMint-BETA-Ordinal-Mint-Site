@@ -7,6 +7,8 @@ interface UserContextData {
   setIsConnected: React.Dispatch<React.SetStateAction<boolean>>;
   ordinalsAddress: string;
   setOrdinalsAddress: React.Dispatch<React.SetStateAction<string>>;
+  walletType: "Unisat" | "Xverse" | "Hiro" | "";
+  setWalletType: React.Dispatch<React.SetStateAction<"Unisat" | "Xverse" | "Hiro" | "">>;
   signOut: () => void;
 }
 
@@ -15,8 +17,11 @@ const defaultContextData: UserContextData = {
   setIsConnected: () => {},
   ordinalsAddress: '',
   setOrdinalsAddress: () => {},
+  walletType: '',
+  setWalletType: () => {},
   signOut: () => {},
 };
+
 
 const UserContext = createContext<UserContextData>(defaultContextData);
 
@@ -29,6 +34,7 @@ interface UserProviderProps {
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [isConnected, setIsConnected] = useState<boolean>(false);
   const [ordinalsAddress, setOrdinalsAddress] = useState<string>('');
+  const [walletType, setWalletType] = useState<"Unisat" | "Xverse" | "Hiro" | "">('');
 
   const signOut = () => {
     setIsConnected(false);
@@ -44,6 +50,8 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         setIsConnected,
         ordinalsAddress,
         setOrdinalsAddress,
+        walletType,
+        setWalletType,
         signOut,
       }}
     >

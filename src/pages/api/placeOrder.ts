@@ -3,7 +3,6 @@ import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import constants from '../../../const/config';
 
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     res.status(405).json({ message: 'Method Not Allowed' });
@@ -14,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const response = await axios.post(
-      'https://api2.ordinalsbot.com/collection-order',
+      'https://api2.ordinalsbot.com/order',
       {
         id: constants.collectionOptions.id,
         count: quantity,
@@ -28,6 +27,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     res.status(200).json(response.data);
   } catch (error) {
-    res.status(500).json({ message: error});
+    if (error instanceof Error) {
+      // If error is an instance of Error, we know it has a .message property
+      res.status(500).json({ message: error.message });
+    } else {
+      // If error is not an instance of Error, it's something unexpected and we should log the entire error
+      console.error(error);
+      res.status(500).json({ message: 'An unexpected error occurred.' });
+    }
   }
 }

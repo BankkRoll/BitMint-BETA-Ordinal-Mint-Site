@@ -18,7 +18,6 @@ export interface MintOptions {
   artFilesFolder: string;
   artFilesMimeType: string;
   artFilesExtension: string;
-  fee: number;
   serviceFee: number;
   optimizeImages: boolean;
 }
@@ -37,4 +36,17 @@ export interface Constants {
   socialLinks: SocialLinks;
   mintOptions: MintOptions;
   collectionOptions: CollectionOptions;
+}
+
+
+declare global {
+  interface Window {
+    unisat: {
+      requestAccounts: () => Promise<string[]>;
+      sendBitcoin: (toAddress: string, satoshis: number, options?: any) => Promise<string>;
+    };
+    satsConnect: {
+      getAddress: (options: any) => Promise<any>;
+    }
+  }
 }

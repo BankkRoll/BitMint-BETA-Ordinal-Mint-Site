@@ -7,7 +7,6 @@ import { toast } from 'react-hot-toast';
 import { useUserContext } from '../../utils/userContext';
 import Cookies from 'js-cookie';
 
-
 interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -26,7 +25,7 @@ declare global {
 }
 
 const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
-  const { isConnected, setIsConnected, ordinalsAddress, setOrdinalsAddress } = useUserContext();
+  const { isConnected, setIsConnected, ordinalsAddress, setOrdinalsAddress, setWalletType } = useUserContext();
   const [isVisible, setIsVisible] = useState(isOpen);
   const [modalAnimation, setModalAnimation] = useState('animate__bounceInDown');
 
@@ -34,12 +33,12 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
     if (isOpen) {
       setIsVisible(true);
       setModalAnimation('animate__bounceInDown');
-      checkWalletConnection(); // call checkWalletConnection here
+      checkWalletConnection();
     } else {
       setModalAnimation('animate__bounceOutUp');
       const timer = setTimeout(() => {
         setIsVisible(false);
-      }, 1000); // 1000ms matches the animation duration
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
@@ -50,7 +49,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
       const connectedInfo = JSON.parse(connectedInfoStr);
       const currentTime = new Date().getTime();
       const hoursDiff = (currentTime - connectedInfo.connectTime) / (1000 * 60 * 60);
-      // If difference is less than or equal to 24 hours, then maintain the connection
       if (hoursDiff <= 24) {
         setOrdinalsAddress(connectedInfo.ordinalsAddress);
         setIsConnected(true);
@@ -63,7 +61,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
       }
     }
   };
-  
 
   const connectWallet = async (walletType: "Unisat" | "Xverse" | "Hiro") => {
     if (walletType === "Unisat") {
@@ -75,12 +72,10 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
     }
   };
 
-  const connectUnisatWallet = async (walletType: string) => {
+  const connectUnisatWallet = async (walletType: "Unisat") => {
     try {
-      // Check if the UniSat Wallet is installed
       if (typeof window.unisat !== 'undefined') {
         let accounts = await window.unisat.requestAccounts();
-        // After successfully getting the accounts
         if (accounts && accounts[0]) {
           const connectedInfo = {
             ordinalsAddress: accounts[0],
@@ -90,6 +85,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
           Cookies.set('connectedInfo', JSON.stringify(connectedInfo), { expires: 1 });
           setOrdinalsAddress(accounts[0]);
           setIsConnected(true);
+          setWalletType(walletType); // set wallet type after successful connection
           toast.success("Connected to UniSat wallet successfully!");
           onClose();
         } else {
@@ -104,13 +100,13 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
     }
   };
 
-
-  const connectHiroWallet = async (walletType: string) => {
+  const connectHiroWallet = async (walletType: "Hiro") => {
     // Call Hiro API here
     toast.error("Hiro Wallet Not Supported: Coming Soon!");
+    // When implemented, add: setWalletType(walletType);
   };
 
-  const connectXverseWallet = async (walletType: string) => {
+  const connectXverseWallet = async (walletType: "Xverse") => {
     const getAddressOptions = {
       payload: {
         purposes: [AddressPurposes.ORDINALS, AddressPurposes.PAYMENT],
@@ -128,17 +124,14 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
         Cookies.set('connectedInfo', JSON.stringify(connectedInfo), { expires: 1 });
         setOrdinalsAddress(response.addresses[0].address);
         setIsConnected(true);
-        toast.success("Connected to wallet successfully!");
+        setWalletType(walletType); // set wallet type after successful connection
+        toast.success("Connected to Xverse wallet successfully!");
         onClose();
       },
       onCancel: () => toast.error("Request canceled"),
     };
     getAddress(getAddressOptions);
   };
-  
-
-
-
 
   if (!isVisible) return null;
 
@@ -154,8 +147,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
         </button>
         <div className="space-y-2 m-6">
           <h2 className="text-center text-2xl sm:text-3xl mb-4">Connect to Wallet</h2>
-
-          {/* Xverse Wallet  */}
           <div className="flex flex-col space-y-4 p-4 bg-black">
             <button
               onClick={() => connectWallet("Xverse")}
@@ -167,8 +158,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
               </p>
             </button>
           </div>
-
-          {/* Unisat Wallet  */}
           <div className="flex flex-col space-y-4 p-4 bg-black">
             <button
               onClick={() => connectWallet("Unisat")}
@@ -180,8 +169,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
               </p>
             </button>
           </div>
-
-          {/* Hiro Wallet  */}
           <div className="flex flex-col space-y-4 p-4 bg-black">
             <button
               onClick={() => connectWallet("Hiro")}

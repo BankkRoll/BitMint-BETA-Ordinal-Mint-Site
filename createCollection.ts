@@ -24,7 +24,7 @@ async function createCollection() {
     if (!fs.existsSync(localFilePath)) {
       throw new Error(`File ${localFilePath} does not exist.`);
     }
-    
+
     return {
       name: fileName,
       url: localFilePath

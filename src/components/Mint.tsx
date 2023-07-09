@@ -5,18 +5,19 @@ import Navbar from './Navbar';
 import { toast } from 'react-hot-toast';
 import { useUserContext } from '../../utils/userContext';
 import MintCard from './MintCard';
-import { OrderProps } from './PendingOrders';
+import { OrderProps, OrderStatus } from './PendingOrders';
 import Cookies from 'js-cookie';
 
 const Mint: React.FC = () => {
   const [quantity, setQuantity] = useState<number>(1);
   const [inscribedQuantity, setInscribedQuantity] = useState<number>(0);
-  const { ordinalsAddress, setOrdinalsAddress, isConnected } = useUserContext();
+  const { ordinalsAddress, setOrdinalsAddress, isConnected, walletType } = useUserContext(); // <-- get walletType here
   const startDateString = `${constants.mintOptions.publicMintStart.toLocaleDateString()} ${constants.mintOptions.publicMintStart.toLocaleTimeString()}`;
   const mintDisabled = constants.mintOptions.publicMintStart > new Date();
   const [pendingOrders, setPendingOrders] = useState<OrderProps[]>([]);
   const [orderIds, setOrderIds] = useState<string[]>([]);
-
+  const [orderId, setOrderId] = useState<string | null>(null);
+  const [invoice, setInvoice] = useState<string | null>(null);
 
   useEffect(() => {
     const updateAddress = () => {
@@ -39,20 +40,20 @@ const Mint: React.FC = () => {
 
 
 
-  const handleMint = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.preventDefault();
+const handleMint = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  event.preventDefault();
 
-    if (!isConnected) {
-      toast.error('Please connect your wallet.');
-      return;
-    }
+  if (!isConnected) { // <-- use isConnected directly
+    toast.error('Please connect your wallet.');
+    return;
+  }
 
-    if (!ordinalsAddress) {
-      toast.error('Please make sure your Taproot address is valid.');
-      return;
-    }
+  if (!ordinalsAddress) {
+    toast.error('Please make sure your Taproot address is valid.');
+    return;
+  }
 
-    try {
+  try {
     // Place an order with the local API endpoint
     const orderResponse = await fetch('/api/placeOrder', {
       method: 'POST',
@@ -72,7 +73,39 @@ const Mint: React.FC = () => {
 
     const orderData = await orderResponse.json();
 
-    setOrderIds(prevOrderIds => [...prevOrderIds, orderData.id]);
+    setOrderId(orderData.id);
+    setInvoice(orderData.invoice);
+
+    // Depending on the wallet type, perform the corresponding actions
+    switch(walletType) { // <-- use walletType directly
+      case 'Xverse':
+        // Xverse wallet code here
+        const getAddressOptions = {
+          // ...
+        };
+        const response = await window.satsConnect.getAddress(getAddressOptions);
+        // handle the response as needed
+        break;
+
+      case 'Unisat':
+        // UniSat wallet code here
+        const accounts = await window.unisat.requestAccounts();
+
+        // Send Bitcoin transaction for minting operation.
+        // Use the amount of satoshis returned from the API endpoint.
+        const txid = await window.unisat.sendBitcoin(ordinalsAddress, orderData.satoshis);
+
+        // handle the transaction ID as needed
+        break;
+
+      case 'Hiro':
+        // Hiro wallet code here
+        // Implement the connection logic for Hiro wallet when it's supported.
+        break;
+
+      default:
+        throw new Error(`Unsupported wallet type: ${walletType}`);
+    }
 
     // On success, show success toast
     toast.success('Minting successful!');
@@ -83,6 +116,31 @@ const Mint: React.FC = () => {
 };
 
 
+// New function to check order status
+const checkOrderStatus = async () => {
+  if (!orderId) return;
+
+  const res = await fetch(`/api/checkOrderStatus?id=${orderId}`);
+  const data: OrderStatus = await res.json();
+
+  if (data.status === 'paid') {
+    toast.success('Order paid!');
+    setOrderId(null);
+    setInvoice(null);
+  } else if (data.status === 'error') {
+    toast.error('Error processing payment: ' + data.error);
+    setOrderId(null);
+    setInvoice(null);
+  }
+};
+
+useEffect(() => {
+  const intervalId = setInterval(checkOrderStatus, 10000); // Check the order status every 10 seconds
+
+  return () => {
+    clearInterval(intervalId);
+  };
+}, [orderId]);
 
   return (
     <div className="border-2 border-white overflow-hidden m-4">

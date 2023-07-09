@@ -10,6 +10,12 @@ export interface OrderProps {
   uid: string;
 }
 
+export interface OrderStatus {
+  id: string;
+  status: 'unpaid' | 'paid' | 'error';
+  error?: string;
+}
+
 interface PendingOrdersProps {
   pendingOrders: OrderProps[];
   orderIds: string[];
