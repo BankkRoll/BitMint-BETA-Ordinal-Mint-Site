@@ -16,14 +16,6 @@ interface AddressResponse {
   addresses: { address: string }[];
 }
 
-declare global {
-  interface Window {
-    unisat: {
-      requestAccounts: () => Promise<string[]>;
-    };
-  }
-}
-
 const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
   const { isConnected, setIsConnected, ordinalsAddress, setOrdinalsAddress, setWalletType } = useUserContext();
   const [isVisible, setIsVisible] = useState(isOpen);
