@@ -65,6 +65,14 @@ const MintCard: React.FC<MintCardProps> = ({
     }
   };
 
+  function formatFee(fee: number) {
+    if (typeof fee === 'number') {
+      return fee.toFixed(4);
+    } else {
+      return fee;
+    }
+  }
+
   return (
     <div className="flex flex-col items-center justify-between w-full md:w-3/5 lg:w-2/5 p-4 md:p-6 bg-black rounded-lg shadow-md text-white space-y-4 md:space-y-8 max-w-screen-md mx-auto text-center border-2 border-white">
       <div className="flex flex-col items-center space-y-4">
@@ -110,18 +118,18 @@ const MintCard: React.FC<MintCardProps> = ({
             <div className="fee-list" style={{ display: 'flex', flexDirection: 'row', marginTop: '8px' }}>
               <div className={`fee-item ${fee === slowFee ? 'selected' : ''}`} style={{ cursor: 'pointer', padding: '8px', border: fee === slowFee ? '2px solid white' : 'none' }} onClick={() => setFee(slowFee)}>
                 <div>Slow</div>
-                <div className="flex-row-v-center"><span className="fee-rate">{slowFee}</span> sats/vB</div>
+                <div className="flex-row-v-center"><span className="fee-rate">{formatFee(slowFee)}</span> sats/vB</div>
               </div>
               <div className={`fee-item ${fee === normalFee ? 'selected' : ''}`} style={{ cursor: 'pointer', padding: '8px', border: fee === normalFee ? '2px solid white' : 'none' }} onClick={() => setFee(normalFee)}>
                 <div>Normal</div>
-                <div className="flex-row-v-center"><span className="fee-rate">{normalFee}</span> sats/vB</div>
+                <div className="flex-row-v-center"><span className="fee-rate">{formatFee(normalFee)}</span> sats/vB</div>
               </div>
               <div className={`fee-item ${fee === fastFee ? 'selected' : ''}`} style={{ cursor: 'pointer', padding: '8px', border: fee === fastFee ? '2px solid white' : 'none' }} onClick={() => setFee(fastFee)}>
                 <div>Fast</div>
                 <div className="flex-row-v-center"></div>
                 <div className="flex-row-v-center" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                   <input type="range" min="1" max={fastFee ? fastFee + 50 : 0} step="0.01" value={fee} onChange={handleFeeChange} onClick={(e) => e.stopPropagation()} />
-                  <span className="fee-rate">{fee} sats/vB</span>
+                  <span className="fee-rate">{formatFee(fee)} sats/vB</span>
                 </div>
               </div>
             </div>
